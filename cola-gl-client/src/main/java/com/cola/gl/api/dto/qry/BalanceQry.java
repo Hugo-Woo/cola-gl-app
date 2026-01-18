@@ -8,4 +8,5 @@ import lombok.Data;
 public class BalanceQry extends Query {
     private String accountCode;
     private String period;
+    private String contactCode;
 }

@@ -25,6 +25,11 @@ public class VoucherPostingService {
 
         for (VoucherLine line : voucher.getLines()) {
             Balance balance = balanceGateway.getByAccountAndPeriod(line.getAccountCode(), period);
+            if (balance == null) {
+                balance = new Balance();
+                balance.setAccountCode(line.getAccountCode());
+                balance.setPeriod(period);
+            }
 
             if ("D".equalsIgnoreCase(line.getDirection())) {
                 balance.addDebit(line.getAmount());

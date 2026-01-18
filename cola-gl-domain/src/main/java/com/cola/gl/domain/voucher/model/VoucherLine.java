@@ -12,4 +12,5 @@ public class VoucherLine {
     private String direction;
     private BigDecimal amount;
     private String description;
+    private String contactCode;
 }

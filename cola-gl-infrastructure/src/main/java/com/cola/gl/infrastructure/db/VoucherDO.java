@@ -19,6 +19,7 @@ public class VoucherDO {
     private LocalDate accountingDate;
     private String description;
 
-    @OneToMany(mappedBy = "voucherId", fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+    @OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+    @JoinColumn(name = "voucher_id")
     private List<VoucherLineDO> lines;
 }

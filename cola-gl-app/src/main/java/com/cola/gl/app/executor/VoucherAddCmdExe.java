@@ -39,6 +39,7 @@ public class VoucherAddCmdExe {
         line.setDirection(l.getDirection());
         line.setAmount(l.getAmount());
         line.setDescription(l.getDescription());
+        line.setContactCode(l.getContactCode());
         return line;
     }
 }

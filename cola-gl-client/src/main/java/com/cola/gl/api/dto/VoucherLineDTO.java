@@ -11,4 +11,5 @@ public class VoucherLineDTO extends DTO {
     private String direction;
     private BigDecimal amount;
     private String description;
+    private String contactCode;
 }

@@ -7,16 +7,16 @@ import java.math.BigDecimal;
 
 @Data
 @Entity
-@Table(name = "voucher_line")
-public class VoucherLineDO {
+@Table(name = "contact_balance")
+public class ContactBalanceDO {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     private String accountCode;
-    private String direction;
-    private BigDecimal amount;
-    private String description;
     private String contactCode;
+    private String period;
+    private BigDecimal debitAmount;
+    private BigDecimal creditAmount;
 }
