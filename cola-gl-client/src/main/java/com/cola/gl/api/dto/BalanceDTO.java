@@ -6,6 +6,7 @@ import lombok.Data;
 import java.math.BigDecimal;
 
 @Data
+@lombok.EqualsAndHashCode(callSuper = false)
 public class BalanceDTO extends DTO {
     private String accountCode;
     private String period;
