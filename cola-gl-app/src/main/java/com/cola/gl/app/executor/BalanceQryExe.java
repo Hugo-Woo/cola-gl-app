@@ -20,18 +20,18 @@ public class BalanceQryExe {
 
     public SingleResponse<BigDecimal> execute(BalanceQry qry) {
         if (qry.getContactCode() != null && !qry.getContactCode().isEmpty()) {
-            ContactBalance contactBalance = contactBalanceGateway.getByAccountAndContact(
+            ContactBalance contactBalance = contactBalanceGateway.getByAccountAndContactCoveringPeriod(
                     qry.getAccountCode(), qry.getContactCode(), qry.getPeriod());
             if (contactBalance == null) {
                 return SingleResponse.of(BigDecimal.ZERO);
             }
-            return SingleResponse.of(contactBalance.getNetBalance());
+            return SingleResponse.of(contactBalance.getEndBalance());
         }
 
-        Balance balance = balanceGateway.getByAccountAndPeriod(qry.getAccountCode(), qry.getPeriod());
+        Balance balance = balanceGateway.getByAccountCodeCoveringPeriod(qry.getAccountCode(), qry.getPeriod());
         if (balance == null) {
             return SingleResponse.of(BigDecimal.ZERO);
         }
-        return SingleResponse.of(balance.getNetBalance());
+        return SingleResponse.of(balance.getEndBalance());
     }
 }
